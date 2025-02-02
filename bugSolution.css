@@ -1,0 +1,21 @@
+The solution involves removing the `!important` declaration from the `.child` selector and relying on the more specific selector `.parent .child`:
+
+```css
+.parent {
+  color: blue;
+}
+
+.child {
+  color: red;
+}
+
+.parent .child {
+  color: green;
+}
+
+<div class="parent">
+  <span class="child"></span>
+</div>
+```
+
+This way, the specificity of the selector `.parent .child` takes precedence, correctly rendering the text color green.
