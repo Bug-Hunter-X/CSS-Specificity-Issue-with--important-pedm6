@@ -1,0 +1,23 @@
+The following CSS code snippet exhibits an unusual behavior related to specificity and inheritance:
+
+```css
+.parent {
+  color: blue;
+}
+
+.child {
+  color: red !important;
+}
+
+.parent .child {
+  color: green;
+}
+
+<div class="parent">
+  <span class="child"></span>
+</div>
+```
+
+The expected behavior might be that the span with class "child" would be green due to the higher specificity of `.parent .child`. However, due to the `!important` declaration in `.child`, the text color becomes red, overriding both the parent's color and the more specific selector.
+
+This issue can be hard to debug because it involves the interplay of specificity, inheritance, and the `!important` rule, which often leads to unexpected cascading styles.
